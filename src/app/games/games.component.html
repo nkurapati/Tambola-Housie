@@ -1,0 +1,10 @@
+<section *ngFor="let game of games">
+  <div>{{game.lastNumber}} </div>
+  Winners:
+  <div>First Five: {{game.firstFive?(game.firstFive.numbers + " - " + game.firstFive.name):""}} </div>
+  <div>1st Row: {{game.firstRow?(game.firstRow.numbers + " - " + game.firstRow.name) : ""}}</div>
+  <div>2nd Row: {{game.secondRow?(game.secondRow.numbers + " - " + game.secondRow.name):""}} </div>
+  <div>3rd Row: {{game.thirdRow?(game.thirdRow.numbers + " - " + game.thirdRow.name):""}} </div>
+  <div>Full House: {{game.fullHouse?(game.fullHouse.numbers + " - " + game.fullHouse.name):""}} </div>
+  <div>Completed Numbers: {{game.completedNumbers}} </div>
+</section>
