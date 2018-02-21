@@ -1,0 +1,14 @@
+<section class="row game">
+  <div app-completed-numbers [game]="game" class="col-md-6 col-lg-6"></div>
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    <div app-random-number [lastNumber]="game.lastNumber" class="col-md-12 col-sm-4 col-xs-4" (click)="updateNumber()"></div>
+    <div class="col-md-12 col-sm-8 col-xs-8">
+        Winners:
+        <div>First Five: {{game.firstFive?(game.firstFive.numbers + " - " + game.firstFive.name):""}} </div>
+        <div>1st Row: {{game.firstRow?(game.firstRow.numbers + " - " + game.firstRow.name) : ""}}</div>
+        <div>2nd Row: {{game.secondRow?(game.secondRow.numbers + " - " + game.secondRow.name):""}} </div>
+        <div>3rd Row: {{game.thirdRow?(game.thirdRow.numbers + " - " + game.thirdRow.name):""}} </div>
+        <div>Full House: {{game.fullHouse?(game.fullHouse.numbers + " - " + game.fullHouse.name):""}} </div>
+    </div>
+  </div>
+</section>

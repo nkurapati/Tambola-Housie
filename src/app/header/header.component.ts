@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { GameService } from './../services/game.service';
 
 @Component({
   selector: '[app-header]',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private gameService:GameService, private router:Router) { }
 
   ngOnInit() {
   }
 
+  createNewGame() {
+    var newGame = this.gameService.createGame();
+    this.router.navigate(['/games', newGame.id]);
+  }
 }

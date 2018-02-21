@@ -8,3 +8,17 @@ html, body {
 body {
     position: relative;
 }
+
+.vline {
+    width: 1px;
+    height: 100%;
+}
+
+.scenter {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.scenter * {
+    display: inline-block;
+}

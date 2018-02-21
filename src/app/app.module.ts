@@ -9,6 +9,9 @@ import { GamesComponent } from './games/games.component';
 import { HomeComponent } from './home/home.component';
 
 import {GameService} from './services/game.service';
+import { RandomNumberComponent } from './random-number/random-number.component';
+import { CompletedNumbersComponent } from './completed-numbers/completed-numbers.component';
+import { PlayComponent } from './play/play.component';
 
 
 
@@ -18,7 +21,10 @@ import {GameService} from './services/game.service';
     HeaderComponent,
     FooterComponent,
     GamesComponent,
-    HomeComponent
+    HomeComponent,
+    RandomNumberComponent,
+    CompletedNumbersComponent,
+    PlayComponent
   ],
   imports: [
     BrowserModule,

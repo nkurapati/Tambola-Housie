@@ -19,8 +19,36 @@ export class GameService {
     return of(this.games);
   }
 
-  setGames(data: Game[]) {
-    this.games = data;
+  setGames(data) {
+    if(data) {
+      this.games = data;
+    }
     this.storeGames();
+  }
+
+  getGameNumbers(): number[] {
+    return Array.from(Array(91).keys()).slice(1);
+  }
+
+  createGame():Game {
+    var newGame:Game = {
+      id: ""+Date.now(),
+      lastNumber: 0,
+      remainingNumbers: this.getGameNumbers(),
+      completedNumbers: [],
+      firstFive: {numbers: "",name: ""},
+      firstRow: {numbers: "",name: ""},
+      secondRow: {numbers: "",name: ""},
+      thirdRow: {numbers: "",name: ""},
+      fullHouse: {numbers: "",name: ""},
+      completed:false
+    }
+    this.games.push(newGame);
+    this.storeGames();
+    return newGame;
+  }
+
+  getGame(id:string) {
+    return this.games.find(game=>game.id==id);
   }
 }
