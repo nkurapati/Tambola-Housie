@@ -1,0 +1,36 @@
+<div class="card">
+  <div class="card-header" id="heading{{game.id}}" data-toggle="collapse" attr.data-target="#collapse{{game.id}}" aria-expanded="true" attr.aria-controls="collapse{{game.id}}">
+    <span>{{game.name || game.id}}</span>
+    <button class="btn btn btn-primary float-right" *ngIf="!game.completed && !isPlay" (click)="startGame($event)">Resume</button>
+    <button class="btn btn btn-primary float-right" *ngIf="!game.completed && isPlay" (click)="onCompleteGame()">Completed</button>
+  </div>
+
+  <div id="collapse{{game.id}}" class="collapse" [class.show]="isPlay" attr.aria-labelledby="heading{{game.id}}" data-parent="#accordion">
+    <div class="card-body">
+      <section class="row game">
+          <div app-completed-numbers [game]="game" class="col-md-6 col-lg-6"></div>
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div app-random-number [lastNumber]="game.lastNumber" class="col-md-12 col-sm-4 col-xs-4" (click)="onUpdateNumber()"></div>
+            <div class="col-md-12 col-sm-8 col-xs-8">
+              <div class="card resutls">
+                <div class="card-body">
+                  <h5 class="card-title">Winners:</h5>
+                  <div>First Five: {{game.firstFive?(game.firstFive.numbers + " - " + game.firstFive.name):""}} </div>
+                  <div>1st Row: {{game.firstRow?(game.firstRow.numbers + " - " + game.firstRow.name) : ""}}</div>
+                  <div>2nd Row: {{game.secondRow?(game.secondRow.numbers + " - " + game.secondRow.name):""}} </div>
+                  <div>3rd Row: {{game.thirdRow?(game.thirdRow.numbers + " - " + game.thirdRow.name):""}} </div>
+                  <div>Full House: {{game.fullHouse?(game.fullHouse.numbers + " - " + game.fullHouse.name):""}} </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card col text-center" *ngIf="isPlay">
+            <div class="card-body">
+              <h5 class="card-title">Last 5 numbers:</h5>
+              {{game.completedNumbers.slice(-5).reverse().join(', ')}}
+            </div>
+          </div>
+        </section>
+    </div>
+  </div>
+</div>

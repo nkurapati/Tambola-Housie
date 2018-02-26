@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { GameService } from './../services/game.service';
 import { Game } from './../interfaces/game';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
 @Component({
   selector: '[app-play]',
@@ -12,7 +12,9 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 export class PlayComponent implements OnInit {
 
   game: Game;
-  constructor(private gameService:GameService, private route:  ActivatedRoute) {}
+  constructor(private gameService:GameService, 
+    private route:  ActivatedRoute,
+    private router: Router) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -25,7 +27,14 @@ export class PlayComponent implements OnInit {
     var lastNumber = this.game.remainingNumbers.splice(rindex, 1)[0];
     this.game.completedNumbers.push(lastNumber);
     this.game.lastNumber = lastNumber;
+    this.game.updatedTime = Date.now();
     this.gameService.setGames(null);
+  }
+
+  completeGame() {
+    this.game.completed = true;
+    this.gameService.setGames(null);
+    this.router.navigate(['/games']);
   }
 
 }

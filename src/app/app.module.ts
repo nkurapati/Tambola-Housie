@@ -12,6 +12,9 @@ import {GameService} from './services/game.service';
 import { RandomNumberComponent } from './random-number/random-number.component';
 import { CompletedNumbersComponent } from './completed-numbers/completed-numbers.component';
 import { PlayComponent } from './play/play.component';
+import { GameComponent } from './game/game.component';
+import { SortByTimePipe } from './filters/sort-by-time.pipe';
+import { RulesComponent } from './rules/rules.component';
 
 
 
@@ -24,7 +27,10 @@ import { PlayComponent } from './play/play.component';
     HomeComponent,
     RandomNumberComponent,
     CompletedNumbersComponent,
-    PlayComponent
+    PlayComponent,
+    GameComponent,
+    SortByTimePipe,
+    RulesComponent
   ],
   imports: [
     BrowserModule,

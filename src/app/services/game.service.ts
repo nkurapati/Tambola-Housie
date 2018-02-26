@@ -8,7 +8,7 @@ import {Game} from './../interfaces/game';
 export class GameService {
   private games:Game[]
   constructor() {
-    this.games = JSON.parse(localStorage.getItem('games'));
+    this.games = JSON.parse(localStorage.getItem('games')) || [];
   }
 
   private storeGames() {
@@ -41,7 +41,8 @@ export class GameService {
       secondRow: {numbers: "",name: ""},
       thirdRow: {numbers: "",name: ""},
       fullHouse: {numbers: "",name: ""},
-      completed:false
+      completed:false,
+      updatedTime: Date.now()
     }
     this.games.push(newGame);
     this.storeGames();

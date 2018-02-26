@@ -4,12 +4,13 @@ import { RouterModule, Routes} from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { GamesComponent } from './games/games.component';
 import { PlayComponent } from './play/play.component';
+import { RulesComponent } from './rules/rules.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
+  {path: '', redirectTo: '/rules', pathMatch: 'full'},
   {path: 'games', component: GamesComponent},
   {path: 'games/:id', component: PlayComponent},
-  {path: 'rules', component: HomeComponent}
+  {path: 'rules', component: RulesComponent}
 ];
 
 @NgModule({

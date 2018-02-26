@@ -10,5 +10,6 @@ export interface Game {
     secondRow: WiningType
     thirdRow: WiningType,
     fullHouse: WiningType,
-    completed:boolean,
+    completed: boolean,
+    updatedTime: number;
 }
