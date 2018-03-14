@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-header" id="heading{{game.id}}" data-toggle="collapse" attr.data-target="#collapse{{game.id}}" aria-expanded="true" attr.aria-controls="collapse{{game.id}}">
-    <span>{{game.name || game.id}}</span>
+    <span>{{game.id}}</span>
     <button class="btn btn btn-primary float-right" *ngIf="!game.completed && !isPlay" (click)="startGame($event)">Resume</button>
     <button class="btn btn btn-primary float-right" *ngIf="!game.completed && isPlay" (click)="onCompleteGame()">Completed</button>
   </div>
