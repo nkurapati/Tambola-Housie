@@ -145,7 +145,7 @@ module.exports = ".ncompleted {\r\n    background-color: lightgray;\r\n}\r\n.ncu
 /***/ "./src/app/completed-numbers/completed-numbers.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<table class=\"table table-bordered\">\n  <tr *ngFor=\"let row of numbers\">\n    <td *ngFor=\"let number of row\" [class.ncompleted]=\"isCompleted(number)\" [class.ncurrent]=\"number==game.lastNumber\">\n      {{number}}\n    </td>\n  </tr>\n</table>"
+module.exports = "<table class=\"table table-bordered\">\r\n  <tr *ngFor=\"let row of numbers\">\r\n    <td *ngFor=\"let number of row\" [class.ncompleted]=\"isCompleted(number)\" [class.ncurrent]=\"number==game.lastNumber\">\r\n      {{number}}\r\n    </td>\r\n  </tr>\r\n</table>"
 
 /***/ }),
 
@@ -248,7 +248,7 @@ module.exports = ".cright {\r\n    font-weight: 500;\r\n}"
 /***/ "./src/app/footer/footer.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"cright\">\n        © All rights reserved | @NKurapati, 2018\n</section>\n"
+module.exports = "<section class=\"cright\">\r\n        © All rights reserved | @NKurapati, 2018\r\n</section>\r\n"
 
 /***/ }),
 
@@ -298,7 +298,7 @@ module.exports = ".resutls {\r\n    margin-top: 38px;\r\n}"
 /***/ "./src/app/game/game.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card\">\n  <div class=\"card-header\" id=\"heading{{game.id}}\" data-toggle=\"collapse\" attr.data-target=\"#collapse{{game.id}}\" aria-expanded=\"true\" attr.aria-controls=\"collapse{{game.id}}\">\n    <span>{{game.name || game.id}}</span>\n    <button class=\"btn btn btn-primary float-right\" *ngIf=\"!game.completed && !isPlay\" (click)=\"startGame($event)\">Resume</button>\n    <button class=\"btn btn btn-primary float-right\" *ngIf=\"!game.completed && isPlay\" (click)=\"onCompleteGame()\">Completed</button>\n  </div>\n\n  <div id=\"collapse{{game.id}}\" class=\"collapse\" [class.show]=\"isPlay\" attr.aria-labelledby=\"heading{{game.id}}\" data-parent=\"#accordion\">\n    <div class=\"card-body\">\n      <section class=\"row game\">\n          <div app-completed-numbers [game]=\"game\" class=\"col-md-6 col-lg-6\"></div>\n          <div class=\"col-lg-6 col-md-6 col-sm-12 col-xs-12\">\n            <div app-random-number [lastNumber]=\"game.lastNumber\" class=\"col-md-12 col-sm-4 col-xs-4\" (click)=\"onUpdateNumber()\"></div>\n            <div class=\"col-md-12 col-sm-8 col-xs-8\">\n              <div class=\"card resutls\">\n                <div class=\"card-body\">\n                  <h5 class=\"card-title\">Winners:</h5>\n                  <div>First Five: {{game.firstFive?(game.firstFive.numbers + \" - \" + game.firstFive.name):\"\"}} </div>\n                  <div>1st Row: {{game.firstRow?(game.firstRow.numbers + \" - \" + game.firstRow.name) : \"\"}}</div>\n                  <div>2nd Row: {{game.secondRow?(game.secondRow.numbers + \" - \" + game.secondRow.name):\"\"}} </div>\n                  <div>3rd Row: {{game.thirdRow?(game.thirdRow.numbers + \" - \" + game.thirdRow.name):\"\"}} </div>\n                  <div>Full House: {{game.fullHouse?(game.fullHouse.numbers + \" - \" + game.fullHouse.name):\"\"}} </div>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div class=\"card col text-center\" *ngIf=\"isPlay\">\n            <div class=\"card-body\">\n              <h5 class=\"card-title\">Last 5 numbers:</h5>\n              {{game.completedNumbers.slice(-5).reverse().join(', ')}}\n            </div>\n          </div>\n        </section>\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"card\">\r\n  <div class=\"card-header\" id=\"heading{{game.id}}\" data-toggle=\"collapse\" attr.data-target=\"#collapse{{game.id}}\" aria-expanded=\"true\" attr.aria-controls=\"collapse{{game.id}}\">\r\n    <span>{{game.id}}</span>\r\n    <button class=\"btn btn btn-primary float-right\" *ngIf=\"!game.completed && !isPlay\" (click)=\"startGame($event)\">Resume</button>\r\n    <button class=\"btn btn btn-primary float-right\" *ngIf=\"!game.completed && isPlay\" (click)=\"onCompleteGame()\">Completed</button>\r\n  </div>\r\n\r\n  <div id=\"collapse{{game.id}}\" class=\"collapse\" [class.show]=\"isPlay\" attr.aria-labelledby=\"heading{{game.id}}\" data-parent=\"#accordion\">\r\n    <div class=\"card-body\">\r\n      <section class=\"row game\">\r\n          <div app-completed-numbers [game]=\"game\" class=\"col-md-6 col-lg-6\"></div>\r\n          <div class=\"col-lg-6 col-md-6 col-sm-12 col-xs-12\">\r\n            <div app-random-number [lastNumber]=\"game.lastNumber\" class=\"col-md-12 col-sm-4 col-xs-4\" (click)=\"onUpdateNumber()\"></div>\r\n            <div class=\"col-md-12 col-sm-8 col-xs-8\">\r\n              <div class=\"card resutls\">\r\n                <div class=\"card-body\">\r\n                  <h5 class=\"card-title\">Winners:</h5>\r\n                  <div>First Five: {{game.firstFive?(game.firstFive.numbers + \" - \" + game.firstFive.name):\"\"}} </div>\r\n                  <div>1st Row: {{game.firstRow?(game.firstRow.numbers + \" - \" + game.firstRow.name) : \"\"}}</div>\r\n                  <div>2nd Row: {{game.secondRow?(game.secondRow.numbers + \" - \" + game.secondRow.name):\"\"}} </div>\r\n                  <div>3rd Row: {{game.thirdRow?(game.thirdRow.numbers + \" - \" + game.thirdRow.name):\"\"}} </div>\r\n                  <div>Full House: {{game.fullHouse?(game.fullHouse.numbers + \" - \" + game.fullHouse.name):\"\"}} </div>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"card col text-center\" *ngIf=\"isPlay\">\r\n            <div class=\"card-body\">\r\n              <h5 class=\"card-title\">Last 5 numbers:</h5>\r\n              {{game.completedNumbers.slice(-5).reverse().join(', ')}}\r\n            </div>\r\n          </div>\r\n        </section>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -379,7 +379,7 @@ module.exports = ".game {\r\n    margin: 10px 0px;\r\n}"
 /***/ "./src/app/games/games.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section id=\"accordion\" class=\"games\" *ngIf=\"games.length\">\n    <div app-game class=\"game\" *ngFor=\"let game of (games | sortByTime: 'updatedTime')\" [game]=\"game\"></div>\n</section>\n<div *ngIf=\"!games.length\" class=\"text-center\">\n    Not played yet! Click on <b>New Game</b> to Play.\n</div>\n"
+module.exports = "<section id=\"accordion\" class=\"games\" *ngIf=\"games.length\">\r\n    <div app-game class=\"game\" *ngFor=\"let game of (games | sortByTime: 'updatedTime')\" [game]=\"game\"></div>\r\n</section>\r\n<div *ngIf=\"!games.length\" class=\"text-center\">\r\n    Not played yet! Click on <b>New Game</b> to Play.\r\n</div>\r\n"
 
 /***/ }),
 
@@ -434,7 +434,7 @@ module.exports = ".logo {\r\n    font-weight: bold;\r\n    color: #007bff;\r\n  
 /***/ "./src/app/header/header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar fixed-top navbar-light bg-light navbar-expand-lg navbar-expand-md navbar-expand-sm\">\n    <a class=\"navbar-brand logo\" href=\"/\">Tambola</a>\n    <button class=\"navbar-toggler\" type=\"button\" \n        data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" \n        aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n        <span class=\"navbar-toggler-icon\"></span>\n    </button>\n    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n        <div class=\"d-flex w-100\">\n            <div class=\"d-none d-md-block mr-auto p-2\"></div>\n            <ul class=\"navbar-nav p-2\">\n                <li class=\"nav-item\" routerLink=\"/rules\" routerLinkActive=\"active\">\n                    <a class=\"nav-link\" href=\"/rules\">Rules</a>\n                </li>\n                <li class=\"nav-item\" routerLink=\"/games\" routerLinkActive=\"active\">\n                    <a class=\"nav-link\" href=\"/games\">Games</a>\n                </li>\n                <li class=\"nav-item\">\n                    <button type=\"button\" class=\"btn btn-primary\" (click)=\"createNewGame()\">New Game</button>\n                </li>\n            </ul>\n        </div>\n    </div>\n</nav>"
+module.exports = "<nav class=\"navbar fixed-top navbar-light bg-light navbar-expand-lg navbar-expand-md navbar-expand-sm\">\r\n    <a class=\"navbar-brand logo\" href=\"/\">Tambola</a>\r\n    <button class=\"navbar-toggler\" type=\"button\" \r\n        data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" \r\n        aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n        <span class=\"navbar-toggler-icon\"></span>\r\n    </button>\r\n    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\r\n        <div class=\"d-flex w-100\">\r\n            <div class=\"d-none d-md-block mr-auto p-2\"></div>\r\n            <ul class=\"navbar-nav p-2\">\r\n                <li class=\"nav-item\" routerLink=\"/rules\" routerLinkActive=\"active\">\r\n                    <a class=\"nav-link\" href=\"/rules\">Rules</a>\r\n                </li>\r\n                <li class=\"nav-item\" routerLink=\"/games\" routerLinkActive=\"active\">\r\n                    <a class=\"nav-link\" href=\"/games\">Games</a>\r\n                </li>\r\n                <li class=\"nav-item\">\r\n                    <button type=\"button\" class=\"btn btn-primary\" (click)=\"createNewGame()\">New Game</button>\r\n                </li>\r\n            </ul>\r\n        </div>\r\n    </div>\r\n</nav>"
 
 /***/ }),
 
@@ -494,7 +494,7 @@ module.exports = ""
 /***/ "./src/app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  home works!\n</p>\n"
+module.exports = "<p>\r\n  home works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -620,7 +620,7 @@ module.exports = ".livenumber {\r\n    font-weight: bold;\r\n    font-size: 110p
 /***/ "./src/app/random-number/random-number.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card\">\n  <div class=\"card-body text-center align-middle\">\n    <div class=\"livenumber\">{{lastNumber}}</div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"card\">\r\n  <div class=\"card-body text-center align-middle\">\r\n    <div class=\"livenumber\">{{lastNumber}}</div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -677,7 +677,7 @@ module.exports = "header {\r\n    height: 72px;\r\n}\r\n\r\nfooter {\r\n    widt
 /***/ "./src/app/root/root.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<header app-header></header>\n<main>\n    <router-outlet></router-outlet>\n</main>\n<footer app-footer class=\"text-center align-middle\"></footer>"
+module.exports = "<header app-header></header>\r\n<main>\r\n    <router-outlet></router-outlet>\r\n</main>\r\n<footer app-footer class=\"text-center align-middle\"></footer>"
 
 /***/ }),
 
@@ -727,7 +727,7 @@ module.exports = ""
 /***/ "./src/app/rules/rules.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  rules works!\n</p>\n"
+module.exports = "<p>\r\n  rules works!\r\n</p>\r\n"
 
 /***/ }),
 
